@@ -1,0 +1,102 @@
+[
+  {
+    "question": "What models are used for the catch22, wavelet, and raw time series data in the evaluation of the top-performing classes?",
+    "gold_chunk_id": "paper5.pdf::chunk_16",
+    "section": "Results"
+  },
+  {
+    "question": "What is the purpose of the first stage in processing raw textual records according to the passage?",
+    "gold_chunk_id": "paper2.pdf::chunk_16",
+    "section": "PROPOSEDFRAMEWORK"
+  },
+  {
+    "question": "What is the performance metric for the CDAN + ELS method in the first column of the data?",
+    "gold_chunk_id": "paper4.pdf::chunk_27",
+    "section": "Conclusion"
+  },
+  {
+    "question": "What effect does label smoothing have on the cross-entropy loss in the models discussed in the passage?",
+    "gold_chunk_id": "paper5.pdf::chunk_27",
+    "section": "Discussion"
+  },
+  {
+    "question": "What does the F1 score indicate about the system's ability to identify clinically relevant evidence from long patient narratives?",
+    "gold_chunk_id": "paper2.pdf::chunk_25",
+    "section": "EXPERIMENT ANDRESULTS"
+  },
+  {
+    "question": "What is the primary function of the encoder in competitive neural sequence transduction models?",
+    "gold_chunk_id": "1706.03762.pdf::chunk_10",
+    "section": "Model Architecture"
+  },
+  {
+    "question": "What is the role of the scalar bias \\( b_p \\) in the equation for Ipre-closure?",
+    "gold_chunk_id": "paper1.pdf::chunk_21",
+    "section": "Problem Formulation"
+  },
+  {
+    "question": "What do the attention patterns across randomly selected signals indicate about their behavior?",
+    "gold_chunk_id": "paper5.pdf::chunk_47",
+    "section": "L3AS10 H-KSRASRYRRR-OH 41 L6AS10 H-SKRYSRARRR-OH"
+  },
+  {
+    "question": "What is the total number of agents involved in the Wildcat Wells collective search paradigm?",
+    "gold_chunk_id": "paper3.pdf::chunk_14",
+    "section": "Landscape construction, task and communication networks"
+  },
+  {
+    "question": "What type of agents are involved in the task described in Section 3 of the passage?",
+    "gold_chunk_id": "paper3.pdf::chunk_8",
+    "section": "Introduction"
+  },
+  {
+    "question": "What is the purpose of Reflection Memory entries in the context of the passage?",
+    "gold_chunk_id": "paper2.pdf::chunk_21",
+    "section": "PROPOSEDFRAMEWORK"
+  },
+  {
+    "question": "What analysis was performed to reduce the feature set to the five most relevant features?",
+    "gold_chunk_id": "paper5.pdf::chunk_35",
+    "section": "Materials and data"
+  },
+  {
+    "question": "What is the primary focus of the research conducted by the authors at the Institute for Computational Physics, University of Stuttgart?",
+    "gold_chunk_id": "paper5.pdf::chunk_0",
+    "section": "Front"
+  },
+  {
+    "question": "What are the three modalities used as inputs to the multi-modal transformer in the classification process?",
+    "gold_chunk_id": "paper5.pdf::chunk_12",
+    "section": "Results"
+  },
+  {
+    "question": "What metrics and baselines are used in the evaluation of SoftReason in the passage?",
+    "gold_chunk_id": "paper1.pdf::chunk_32",
+    "section": "Experimental Evaluation"
+  },
+  {
+    "question": "What are the three complexity levels of the two-dimensional landscapes constructed for the investigation of AI agent behavior?",
+    "gold_chunk_id": "paper3.pdf::chunk_6",
+    "section": "Introduction"
+  },
+  {
+    "question": "What was the outcome of the pilot study regarding the framework's agreement with expert labels?",
+    "gold_chunk_id": "paper2.pdf::chunk_9",
+    "section": "INTRODUCTION"
+  },
+  {
+    "question": "What do negative coefficients in the OLS regressions indicate about the relationship between network efficiency and performance?",
+    "gold_chunk_id": "paper3.pdf::chunk_33",
+    "section": "Network structure and collective performance"
+  },
+  {
+    "question": "What advantage does the transfer-learning experiment provide when applying machine learning to new sensing tasks?",
+    "gold_chunk_id": "paper5.pdf::chunk_28",
+    "section": "Discussion"
+  },
+  {
+    "question": "What does the dataset X R7 contain, and how many labeled events does it have across the 20 classes?",
+    "gold_chunk_id": "paper5.pdf::chunk_32",
+    "section": "Materials and data"
+  }
+]

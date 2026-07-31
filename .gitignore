@@ -1,0 +1,19 @@
+# Secrets
+.env
+
+# Data & artifacts (don't commit PDFs or the index)
+data/papers/*.pdf
+data/faiss_index/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

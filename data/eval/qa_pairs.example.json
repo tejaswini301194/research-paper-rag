@@ -1,0 +1,12 @@
+[
+  {
+    "question": "What positional encoding does the model use instead of recurrence?",
+    "gold_chunk_id": "1706.03762.pdf::chunk_7",
+    "section": "Methods"
+  },
+  {
+    "question": "What BLEU score does the model achieve on English-to-German translation?",
+    "gold_chunk_id": "1706.03762.pdf::chunk_19",
+    "section": "Results"
+  }
+]
