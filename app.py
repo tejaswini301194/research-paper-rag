@@ -3,7 +3,15 @@
 Run locally:   streamlit run app.py
 Deploy free:   https://share.streamlit.io (Streamlit Community Cloud)
 """
+import os
+
 import streamlit as st
+
+# Streamlit Cloud stores secrets in st.secrets, not automatically in the
+# environment. Bridge it into os.environ before importing anything that
+# reads OPENAI_API_KEY via os.getenv (our config.py does this).
+if "OPENAI_API_KEY" in st.secrets:
+    os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
 from src.index import load_index
 from src.qa import answer
@@ -30,6 +38,9 @@ except FileNotFoundError:
         "No index found. This demo ships with a pre-built FAISS index — "
         "if you're seeing this, the index files weren't included in the deploy."
     )
+    st.stop()
+except RuntimeError as e:
+    st.error(f"Configuration error: {e}")
     st.stop()
 
 # --- Question input ------------------------------------------------------------
