@@ -6,3 +6,4 @@ faiss-cpu==1.14.3
 pypdf==5.9.0
 python-dotenv==1.2.2
 requests==2.33.1
+streamlit==1.60.0
