@@ -1,5 +1,7 @@
 # Research-Paper RAG Assistant
 
+**[Try the live demo →](https://research-paper-rag-kqz6ad6rqv2pvyq6opx89s.streamlit.app/)**
+
 A retrieval-augmented question-answering system for academic papers, built with LangChain v1, FAISS, and the OpenAI API. Ask questions about a PDF corpus and get grounded, cited answers — the system refuses to guess when the retrieved context doesn't contain the answer.
 
 ## Why this project
@@ -13,6 +15,12 @@ Most RAG demos stop at "it works on one document." This one is built to answer a
 - Embeds chunks and builds a persisted FAISS index
 - Answers questions with citations back to the source section, and explicitly declines to answer when the context doesn't support it
 - Scores its own retrieval quality with Recall@K and MRR, using a self-bootstrapped eval set (no manual labeling required)
+
+## Live demo
+
+**[research-paper-rag-kqz6ad6rqv2pvyq6opx89s.streamlit.app](https://research-paper-rag-kqz6ad6rqv2pvyq6opx89s.streamlit.app/)**
+
+The hosted demo runs on a single indexed paper ("Attention Is All You Need") for a clean first-time experience. The retrieval numbers below were measured separately on a harder, 6-paper mixed corpus — see [Results](#results).
 
 ## Results
 
@@ -32,20 +40,12 @@ Measured on a 6-paper mixed corpus (arXiv's "Attention Is All You Need" plus fiv
 - PDF text extraction is imperfect. Section-header detection is regex-based and degrades gracefully (falls back to one "Body" section) but won't be perfect on every paper's formatting — one section in testing (`EXPERIMENT ANDRESULTS`) shows a header mashed together by extraction artifacts, a case worth knowing about rather than hiding.
 - A `References`-section chunk can still get retrieved by mistake for other query types; excluding it from eval generation doesn't remove it from the corpus, just from the test set.
 
-## Architecture
-
-```
-data/papers/*.pdf  →  section-aware chunking  →  OpenAI embeddings  →  FAISS index
-                                                                          │
-                                                                          ▼
-                                          question → retrieve top-K → grounded LLM answer + citations
-```
-
-- **`src/chunking.py`** — detects section headers via regex (numbered like "3.1 Methods" and canonical like "Abstract"), chunks within sections so boundaries are never crossed, tags every chunk with source/title/section/chunk_id
+## Architecture- **`src/chunking.py`** — detects section headers via regex (numbered like "3.1 Methods" and canonical like "Abstract"), chunks within sections so boundaries are never crossed, tags every chunk with source/title/section/chunk_id
 - **`src/ingest.py`** — downloads arXiv PDFs by ID, loads any PDF in `data/papers/` via `PyPDFLoader`
 - **`src/index.py`** — full build pipeline (load → chunk → embed → FAISS), plus persistence and reload
 - **`src/qa.py`** — the LangChain retrieval chain; system prompt enforces grounding, citation by section, and refusal over hallucination
 - **`src/evaluate.py`** — pure Recall@K / MRR metric functions, an eval harness with per-section breakdown, and a synthetic eval-set generator that asks the LLM to write one question per sampled chunk
+- **`app.py`** — Streamlit UI wrapping the same retrieval chain used by the CLI, deployed on Streamlit Community Cloud
 
 ## Setup
 
@@ -77,11 +77,14 @@ python scripts/run_eval.py --generate 20 --k 1 3 5
 
 # re-score an existing eval set without regenerating it
 python scripts/run_eval.py --k 1 3 5
+
+# run the web demo locally
+streamlit run app.py
 ```
 
 ## Tech stack
 
-LangChain v1 (`langchain-core`, `langchain-community`, `langchain-openai`, `langchain-text-splitters`), FAISS, OpenAI API (`text-embedding-3-small`, `gpt-4o-mini`), PyPDF.
+LangChain v1 (`langchain-core`, `langchain-community`, `langchain-openai`, `langchain-text-splitters`), FAISS, OpenAI API (`text-embedding-3-small`, `gpt-4o-mini`), PyPDF, Streamlit.
 
 ## A note on process
 
